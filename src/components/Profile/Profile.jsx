@@ -2,7 +2,7 @@ import React from 'react'
 
 const Profile = () => {
     console.log('Profile');
-    return <h1>Profile Page</h1>;
+    return <p>Profile Page</p>;
 }
 
 export default Profile;
