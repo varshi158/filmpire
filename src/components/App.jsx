@@ -1,5 +1,5 @@
-import { CssBaseline } from "@mui/material";
-import { Route, Routes } from "react-router-dom";
+import { CssBaseline } from "@mui/material"; // Ensures consistent baseline styles across different browsers
+import { Route, Routes } from "react-router-dom"; // Handles routing for different pages
 
 import useStyles from "./styles";
 import { Movies, MovieInformation, Actors, Profile, Navbar } from "./component-exports";
@@ -14,6 +14,8 @@ const App = () => {
       <Navbar />
       <main className={classes.content}>
         <div className={classes.toolbar} />
+
+        {/* App routes */}
         <Routes>
           <Route path="/movie/:id" element={<MovieInformation />} />
           <Route path="/actors/:id" element={<Actors />} />

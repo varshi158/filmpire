@@ -7,10 +7,14 @@ import { MovieList } from '../component-exports';
 
 
 const Movies = () => {
-    const { data, error, isFetching } = useGetMoviesQuery();
-    console.log("Movies Data:", data);
-    console.log("API Error:", error);
+     // Fetch movies using Redux Toolkit Query
+     const { data, error, isFetching } = useGetMoviesQuery();
 
+     // Debugging logs to inspect API response and errors
+     console.log("Movies Data:", data); //fetches 20 movies per page
+     console.log("API Error:", error);
+
+    // Show a loading spinner while data is being fetched
     if (isFetching) {
         return (
             <Box display= "flex" justifyContent='center'>
@@ -19,6 +23,7 @@ const Movies = () => {
         );
     }
 
+    // Handle the case where no movies match the search query
     if (!data.results.length) {
         return (
             <Box display= "flex" alignItems='center' mt="20px">
@@ -31,8 +36,10 @@ const Movies = () => {
         );
     }
 
+    // Display an error message if there is an API error
     if (error) return 'An error has occurred: ' + error.message;
-    
+
+    // Render the list of movies once data is available
     return (
         <div>
             <MovieList movies={data} />
